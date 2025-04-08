@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Timeline</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="timeline.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div id="container">
+
+      <header>
+        <div id="title">
+          <h1 id="titleH1">Timeline</h1>
+          <div id="load">
+            <input id="configUrl" type="text" value="data/example/config.json" placeholder="config.json url" onkeydown="checkEnter(event)"/>
+            <button id="loadConfig" onclick="load()">Load</button>
+          </div>
+        </div>
+        <div id="filters"></div>
+      </header>
+
+      <div>
+        <svg id="timeline"></svg>
+        <div id="tooltip" class="tooltip"></div>
+      </div>
+
+    </div>
+
+    <script>
+      function checkEnter(event) {
+        if (event.key === "Enter") {
+          load();
+        }
+      }
+
+      function load(){
+        initTimeline(document.getElementById('configUrl').value);
+      }
+
+      const hash = window.location.hash.substring(1);
+      const urlParams = new URLSearchParams(hash);
+      if (urlParams.has("configUrl")) {
+        document.getElementById('configUrl').value = urlParams.get("configUrl");
+      }
+      load();
+
+    </script>
+
+    </body>
+</html>

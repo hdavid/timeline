@@ -1,0 +1,83 @@
+ [
+    {
+      "name": "Mars 2020 Rover",
+      "description": "NASA's Mars 2020 rover, Perseverance, landed on Mars to search for signs of ancient life.",
+      "type": "Rover",
+      "company": "NASA",
+      "start": "2020-07-30",
+      "end": "2021-02-18"
+    },
+    {
+      "name": "Lunar Gateway",
+      "description": "A collaborative project involving NASA, ESA, JAXA, and CSA to build a lunar space station.",
+      "type": "Space Station",
+      "company": "NASA, ESA, JAXA, CSA",
+      "start": "2020-12-15",
+      "end": "2024-12-31"
+    },
+    {
+      "name": "China's Chang'e-5",
+      "description": "China's Chang'e-5 mission successfully landed on the Moon and brought back lunar samples.",
+      "type": "Lunar Probe",
+      "company": "CNSA",
+      "start": "2020-11-23",
+      "end": "2021-12-17"
+    },
+    {
+      "name": "James Webb Space Telescope",
+      "description": "The JWST is the most powerful space telescope designed to explore the universe from infrared wavelengths.",
+      "type": "Telescope",
+      "company": "NASA, ESA, CSA",
+      "start": "2021-12-25",
+      "end": "2022-01-10"
+    },
+    {
+      "name": "Mars Sample Return",
+      "description": "A collaborative mission to return samples collected from Mars back to Earth.",
+      "type": "Sample Return",
+      "company": "NASA, ESA",
+      "start": "2020-07-01",
+      "end": "2028-12-31"
+    },
+    {
+      "name": "ESA's ExoMars",
+      "description": "ExoMars is a joint mission between ESA and Roscosmos, aimed at searching for signs of past life on Mars.",
+      "type": "Rover",
+      "company": "ESA, Roscosmos",
+      "start": "2020-07-20",
+      "end": "2022-04-01"
+    },
+    {
+      "name": "Artemis I",
+      "description": "NASA's first mission in the Artemis program, aimed at returning humans to the Moon.",
+      "type": "Manned Mission",
+      "company": "NASA",
+      "start": "2021-11-16",
+      "end": "2022-05-01"
+    },
+    {
+      "name": "Indian Mars Orbiter Mission (MOM)",
+      "description": "India's Mars Orbiter Mission, also called Mangalyaan, is designed to explore the surface and atmosphere of Mars.",
+      "type": "Orbiter",
+      "company": "ISRO",
+      "start": "2020-09-24",
+      "end": "2022-09-24"
+    },
+    {
+      "name": "Venus Express",
+      "description": "Venus Express was a mission by the European Space Agency to explore Venus from orbit.",
+      "type": "Orbiter",
+      "company": "ESA",
+      "start": "2020-04-05",
+      "end": "2022-04-05"
+    },
+    {
+      "name": "SpaceX Starship",
+      "description": "SpaceX's Starship is a fully reusable spacecraft designed for missions to Mars, the Moon, and beyond.",
+      "type": "Spacecraft",
+      "company": "SpaceX",
+      "start": "2020-09-01",
+      "end": "2025-12-31"
+    }
+  ]
+

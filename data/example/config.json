@@ -1,0 +1,6 @@
+{
+  "title": "Space Missions",
+  "data": ["data/example/missions.json"],
+  "css": ["data/example/style.css"],
+  "groupNames": ["company"]
+}

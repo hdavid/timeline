@@ -1,0 +1,16 @@
+
+/* style for the bar for items with type=rover */
+.type-rover { fill: #C1FF07;}
+
+.type-rover input[type="checkbox"]:checked + * {background-color: #C1FF07;}
+
+/* style for the group nasa */
+.group-nasa { fill: #0000ff;}
+/* style for the button for items with company=nasa */
+.company-nasa input[type="checkbox"]:checked + * {background-color: #0000ff;}
+
+.type-telescope { fill: #C107FF;}
+.type-telescope input[type="checkbox"]:checked + * {background-color: #C107FF;}
+
+.type-space-station { fill: #FFC107; }
+.type-space-station input[type="checkbox"]:checked + * {background-color: #FFC107;}
