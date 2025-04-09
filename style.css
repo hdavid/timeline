@@ -12,7 +12,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center the content */
-    background-color: #f4f4f4;
+    background-color: #d4d4d4;
     border-bottom: 1px solid #555555;
     margin-bottom: 10px;
     position: fixed; /* Fixes the header to the top */
@@ -45,21 +45,30 @@ h1 {
     margin-right:30px;
 }
 
+#configUrl{
+    width:200px;
+}
+
 #filters {
     width: 100%; /* Ensure filters section spans full width */
     display: flex; /* Enable flexbox */
-    justify-content: center; /* Centers the content horizontally */
-    gap: 10px; /* Space between the filter elements */
-    align-items: center; /* Vertically align the filter elements */
-    padding: 5px;
+    flex-wrap: wrap; /* 💡 Allow wrapping to new lines */
+    justify-content: center; /* Center filters horizontally */
+    gap: 10px; /* Space between filter boxes */
+    align-items: flex-start; /* Align to top when wrapped */
+    padding: 10px 20px;
+    box-sizing: border-box; /* Make sure padding doesn't overflow */
 }
+
 
 .filter {
     border: 1px solid #ccc;
     background: rgba(244, 244, 244, 0.5);
-    padding: 5px;
+    padding: 8px;
     border-radius: 8px;
     user-select: none;
+    fflex: 1 1 250px; /* Allow shrinking/growing but keep a minimum width */
+    min-width: 200px; /* Prevent filter box from becoming too narrow */
 }
 
 .filter-item input[type="checkbox"] {
@@ -125,7 +134,7 @@ svg {
 }
 
 .group-odd, .group-even {stroke: #000000; stroke-width:1;fill-opacity: 0.5;  }
-.group-odd { fill: #000000;}
+.group-odd { fill: #888888;}
 .group-even { fill: #ffffff;}
 
 

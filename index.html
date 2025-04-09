@@ -37,6 +37,9 @@
       }
 
       function load(){
+        const filters = new URLSearchParams(); // This will hold the filter states
+        filters.append("configUrl", document.getElementById('configUrl').value);
+        window.location.hash = filters.toString();
         initTimeline(document.getElementById('configUrl').value);
       }
 
@@ -45,7 +48,10 @@
       if (urlParams.has("configUrl")) {
         document.getElementById('configUrl').value = urlParams.get("configUrl");
       }
-      load();
+      initTimeline(document.getElementById('configUrl').value);
+
+      //header adjust
+      window.addEventListener("resize", adjustBodyMargin);
 
     </script>
 

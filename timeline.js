@@ -1,8 +1,3 @@
-/*
-TODO
-- button in color of item
-- fix reload new url button
- */
 
 let data = [];
 
@@ -12,6 +7,13 @@ let groupNames = [];
 let customOrders= {}
 let singleLineProperties = {};
 let configUrl = null;
+
+function adjustBodyMargin() {
+    const header = document.querySelector("header");
+    const body = document.body;
+    const headerHeight = header.offsetHeight;
+    body.style.marginTop = headerHeight + "px";
+}
 
 async function initTimeline(configUrlParameter) {
     configUrl = configUrlParameter;
@@ -55,17 +57,18 @@ async function initTimeline(configUrlParameter) {
     } else if (Array.isArray(config.data)) {
         dataFiles = config.data;
     }
-    loadData(dataFiles).then(() => {
-        sortData();
-        computeFilterNames();
-        sortData();
-        generateFilterUI();
-        getFiltersFromHash();
-        createTimeline();
-        updateTimeline();
-        updateHashFromFilters()
-        window.addEventListener("resize", updateTimeline);
-    });
+
+    await loadData(dataFiles);
+    sortData();
+    computeFilterNames();
+    sortData();
+    generateFilterUI();
+    getFiltersFromHash();
+    adjustBodyMargin();
+    createTimeline();
+    updateTimeline();
+    window.addEventListener("resize", updateTimeline);
+
 }
 
 async function loadData(urls) {
@@ -252,8 +255,7 @@ function getId(item) {
 function getFiltersFromHash() {
     const hash = window.location.hash.substring(1); // Remove the '#' character
     const filters = new URLSearchParams(hash); // Parse the hash as query parameters
-
-    if (filters.length>1) {
+    if (filters.size>1) {
         document.querySelectorAll(".filter-checkbox").forEach(cb => {
             cb.checked = false;
         });
@@ -266,7 +268,7 @@ function getFiltersFromHash() {
                 if (checkbox) {
                     checkbox.checked = true;
                 } else {
-                    console.warn(`Filter ${filterName} has unknown value ${value}`);
+                    //console.warn(`Filter ${filterName} has unknown value ${value}`);
                 }
             });
         });
@@ -275,6 +277,10 @@ function getFiltersFromHash() {
 
 function updateHashFromFilters() {
     const filters = new URLSearchParams(); // This will hold the filter states
+    filters.append("configUrl", configUrl);
+    document.querySelectorAll(".filter-checkbox").forEach(cb => {
+        cb.removeEventListener("change", update);
+    });
     filterNames.forEach(filterName => {
         // Find all checked checkboxes for the current filter
         const checkedValues = [];
@@ -289,7 +295,9 @@ function updateHashFromFilters() {
             });
         }
     });
-    filters.append("config", configUrl);
+    document.querySelectorAll(".filter-checkbox").forEach(cb => {
+        cb.addEventListener("change", update);
+    });
     // Update the hash in the URL without reloading the page
     window.location.hash = filters.toString();
 }
