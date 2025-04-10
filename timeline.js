@@ -320,7 +320,7 @@ function createTimeline(){
 function updateTimeline() {
 
     let width = window.innerWidth - margin.left - margin.right;
-    let height = window.innerHeight - document.querySelector('#filters').offsetHeight - margin.top - margin.bottom;
+    let height = window.innerHeight - document.querySelector('header#header').offsetHeight - margin.top - margin.bottom;
 
     const chart = d3.select("#chart");
 
