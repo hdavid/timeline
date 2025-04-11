@@ -102,7 +102,19 @@ function sortData() {
             const bVal = b[key];
             if (aVal == null && bVal != null) return -1;
             if (aVal != null && bVal == null) return 1;
-            if (aVal !== bVal) return d3.ascending(aVal, bVal);
+            if (customOrders[key] && (customOrders[key].includes(aVal) || customOrders[key].includes(bVal) ) ) {
+                const customOrder = customOrders[key];
+                const aIndex = customOrder.indexOf(aVal);
+                const bIndex = customOrder.indexOf(bVal);
+
+                const aRank = aIndex !== -1 ? aIndex : customOrder.length;
+                const bRank = bIndex !== -1 ? bIndex : customOrder.length;
+
+                if (aRank !== bRank) return aRank - bRank;
+            } else {
+                if (aVal !== bVal) return d3.ascending(aVal, bVal);
+            }
+            //if (aVal !== bVal) return d3.ascending(aVal, bVal);
         }
 
         // 2. Sort by properties (e.g., type)
