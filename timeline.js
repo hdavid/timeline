@@ -390,10 +390,10 @@ function updateTimeline() {
             return [base, ...dynamicClasses].join(" ");
         })
         .on("mouseover", (event, d) => {
-            let html = "";//`<strong>${d.name}</strong>`;
+            let html = `<strong>${d.name}</strong><br/>`;
             html += `${d3.timeFormat("%b %d, %Y")(d.startDate)} – ${d3.timeFormat("%b %d, %Y")(d.endDate)}`;
             if (d["description"]) {
-                html += '<br>${d.description}';
+                html += `<br><p style="width:200px">${d.description}</p>`;
             }
             for (const groupName of groupNames) {
                 if (d[groupName]) {
